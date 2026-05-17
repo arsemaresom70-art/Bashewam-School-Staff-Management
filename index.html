@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Noto+Sans+Ethiopic:wght@400;600;700;800&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="styles.css" />
   <style id="banner-style"></style>
 </head>
 <body>
@@ -99,6 +99,93 @@
     <span class="level-banner-icon" id="banner-icon"></span>
     <h2 class="level-banner-title" id="banner-title">All Levels</h2>
     <p class="level-banner-sub" id="banner-sub">Loading…</p>
+  </div>
+
+  <div class="stats-strip">
+    <div class="stat-item">
+      <div class="stat-num" id="stat-total">0</div>
+      <div class="stat-lbl" id="stat-total-lbl">Total Staff</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num" id="stat-teachers" style="color:var(--clr-g58)">0</div>
+      <div class="stat-lbl" id="stat-teachers-lbl">Teachers</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num" id="stat-other" style="color:var(--clr-kg)">0</div>
+      <div class="stat-lbl" id="stat-other-lbl">Support Staff</div>
+    </div>
+  </div>
+
+  <div class="role-filter-wrap" id="role-filter"></div>
+
+  <div class="staff-container">
+    <div class="staff-grid" id="staff-grid"></div>
+  </div>
+
+</section>
+
+
+<!-- ══════════════════════════════════════════════════
+     STAFF PROFILE MODAL
+══════════════════════════════════════════════════ -->
+<div class="modal-overlay" id="modal-overlay">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="modal-avatar" id="m-avatar">MC</div>
+      <div class="modal-name-wrap">
+        <div class="modal-name"     id="m-name">Staff Name</div>
+        <div class="modal-title-txt" id="m-title">Title</div>
+        <span class="modal-dept-badge" id="m-dept">Department</span>
+      </div>
+      <button class="modal-close" id="modal-close" title="Close">✕</button>
+    </div>
+    <div class="modal-body">
+      <p class="modal-bio" id="m-bio">Bio goes here.</p>
+      <div class="modal-info-grid">
+        <div class="modal-info-item">
+          <div class="modal-info-label" id="lbl-phone">📘Academic qualification</div>
+          <div class="modal-info-val" id="m-phone">—</div>
+        </div>
+        <div class="modal-info-item">
+          <div class="modal-info-label" id="lbl-email">🎓 Alma mater</div>
+          <div class="modal-info-val" id="m-email" style="font-size:0.78rem">—</div>
+        </div>
+        <div class="modal-info-item">
+          <div class="modal-info-label" id="lbl-exp">⏳ Experience</div>
+          <div class="modal-info-val" id="m-exp">—</div>
+        </div>
+        <div class="modal-info-item">
+          <div class="modal-info-label" id="lbl-joined">📚 Bashewam Teaching Exp</div>
+          <div class="modal-info-val" id="m-joined">—</div>
+        </div>
+        <div class="modal-info-item">
+          <div class="modal-info-label" id="lbl-level">🏫 Level</div>
+          <div class="modal-info-val" id="m-level">—</div>
+        </div>
+        <div class="modal-info-item">
+          <div class="modal-info-label" id="lbl-role">🎭 Role</div>
+          <div class="modal-info-val" id="m-role">—</div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="modal-action" id="m-call-btn">📞 <span id="lbl-call">Call</span></button>
+      <button class="modal-action primary" id="m-email-btn">✉️ <span id="lbl-send-email">Send Email</span></button>
+    </div>
+  </div>
+</div>
+
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+
+<!-- Scripts -->
+<script src="data.js"></script>
+<script src="app.js"></script>
+
+</body>
+</html>
   </div>
 
   <div class="stats-strip">
