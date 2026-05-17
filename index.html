@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bashewam School — Staff Management</title>
+
+  <!-- Google Fonts: Poppins + Noto Sans Ethiopic (Amharic) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Noto+Sans+Ethiopic:wght@400;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/styles.css" />
+  <style id="banner-style"></style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════
+     LANGUAGE SELECTION SCREEN
+══════════════════════════════════════════════════ -->
+<div id="lang-screen">
+  <div class="lang-logo"></div>
+  <div class="lang-school-name">Bashewam School</div>
+  <p class="lang-prompt">Please choose your language</p>
+  <p class="lang-prompt-am">እባክዎ ቋንቋዎን ይምረጡ</p>
+
+  <div class="lang-cards">
+
+    <!-- English -->
+    <div class="lang-card" id="lang-en" style="--lc-color:#6C63FF">
+      <span class="lang-flag">🇬🇧</span>
+      <div class="lang-name">English</div>
+      <div class="lang-native">English</div>
+      <div class="lang-sub">Click to select</div>
+      <div class="lang-select-btn">Select</div>
+    </div>
+
+    <!-- Amharic -->
+    <div class="lang-card" id="lang-am" style="--lc-color:#FF6B9D">
+      <span class="lang-flag">🇪🇹</span>
+      <div class="lang-name">Amharic</div>
+      <div class="lang-native">አማርኛ</div>
+      <div class="lang-sub">ጠቅ ያድርጉ</div>
+      <div class="lang-select-btn">ምረጥ</div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════
+     HERO / HOME PAGE
+══════════════════════════════════════════════════ -->
+<section id="hero" style="display:none">
+  <div class="hero-bg"></div>
+  <div class="particles"></div>
+  <div class="building-silhouette"></div>
+
+  <div class="hero-content">
+
+    <div class="logo-wrap"></div>
+    <h1 class="school-name" id="hero-school-name">Bashewam School</h1>
+    <p class="school-motto" id="hero-motto">Educating Minds, Building Futures</p>
+
+    <div class="school-badges">
+      <span class="badge" id="badge-founded">📅 Est. 1992</span>
+      <span class="badge" id="badge-address">📍 Addis Ketema Sub-city, Woreda 13, Addis Ababa, Ethiopia</span>
+      <span class="badge" id="badge-phone">☎️ +251 11 234 5678</span>
+      <!-- Language switch -->
+      <span class="lang-switch-badge" id="lang-switch-btn">🌐 <span id="lang-switch-label">Switch Language</span></span>
+    </div>
+
+    <div class="section-title">
+      <span id="hero-choose-label">Select a Level or Department</span>
+    </div>
+
+    <div class="level-grid" id="level-grid"></div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════
+     STAFF PAGE
+══════════════════════════════════════════════════ -->
+<section id="staff-page">
+
+  <div class="staff-topbar">
+    <button class="back-btn" id="back-btn">&#8592; <span id="back-label">Home</span></button>
+    <span class="topbar-title" id="topbar-title">Staff Directory</span>
+
+    <div class="search-wrap">
+      <i class="search-icon">🔍</i>
+      <input type="text" id="search-input" placeholder="Search staff…" autocomplete="off" />
+    </div>
+  </div>
+
+  <div class="level-banner">
+    <span class="level-banner-icon" id="banner-icon"></span>
+    <h2 class="level-banner-title" id="banner-title">All Levels</h2>
+    <p class="level-banner-sub" id="banner-sub">Loading…</p>
+  </div>
+
+  <div class="stats-strip">
+    <div class="stat-item">
+      <div class="stat-num" id="stat-total">0</div>
+      <div class="stat-lbl" id="stat-total-lbl">Total Staff</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num" id="stat-teachers" style="color:var(--clr-g58)">0</div>
+      <div class="stat-lbl" id="stat-teachers-lbl">Teachers</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num" id="stat-other" style="color:var(--clr-kg)">0</div>
+      <div class="stat-lbl" id="stat-other-lbl">Support Staff</div>
+    </div>
+  </div>
+
+  <div class="role-filter-wrap" id="role-filter"></div>
+
+  <div class="staff-container">
+    <div class="staff-grid" id="staff-grid"></div>
+  </div>
+
+</section>
+
+
+<!-- ══════════════════════════════════════════════════
+     STAFF PROFILE MODAL
+══════════════════════════════════════════════════ -->
+<div class="modal-overlay" id="modal-overlay">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="modal-avatar" id="m-avatar">MC</div>
+      <div class="modal-name-wrap">
+        <div class="modal-name"     id="m-name">Staff Name</div>
+        <div class="modal-title-txt" id="m-title">Title</div>
+        <span class="modal-dept-badge" id="m-dept">Department</span>
+      </div>
+      <button class="modal-close" id="modal-close" title="Close">✕</button>
+    </div>
+    <div class="modal-body">
+      <p class="modal-bio" id="m-bio">Bio goes here.</p>
+      <div class="modal-info-grid">
+        <div class="modal-info-item">
+          <div class="modal-info-label" id="lbl-phone">📘Academic qualification</div>
+          <div class="modal-info-val" id="m-phone">—</div>
+        </div>
+        <div class="modal-info-item">
+          <div class="modal-info-label" id="lbl-email">🎓 Alma mater</div>
+          <div class="modal-info-val" id="m-email" style="font-size:0.78rem">—</div>
+        </div>
+        <div class="modal-info-item">
+          <div class="modal-info-label" id="lbl-exp">⏳ Experience</div>
+          <div class="modal-info-val" id="m-exp">—</div>
+        </div>
+        <div class="modal-info-item">
+          <div class="modal-info-label" id="lbl-joined">📚 Bashewam Teaching Exp</div>
+          <div class="modal-info-val" id="m-joined">—</div>
+        </div>
+        <div class="modal-info-item">
+          <div class="modal-info-label" id="lbl-level">🏫 Level</div>
+          <div class="modal-info-val" id="m-level">—</div>
+        </div>
+        <div class="modal-info-item">
+          <div class="modal-info-label" id="lbl-role">🎭 Role</div>
+          <div class="modal-info-val" id="m-role">—</div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="modal-action" id="m-call-btn">📞 <span id="lbl-call">Call</span></button>
+      <button class="modal-action primary" id="m-email-btn">✉️ <span id="lbl-send-email">Send Email</span></button>
+    </div>
+  </div>
+</div>
+
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+
+<!-- Scripts -->
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+
+</body>
+</html>
